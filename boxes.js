@@ -1,11 +1,3 @@
-// 1. Find the secretBox on the page. Set the background color to white.  Add an h1 tag that says, "secret box!"
-// 2. Find all child divs of the first row.  Add the class boxType3 to all of these divs.
-// 3. Make the last box in the last row disappear. (Hint, look into the display style.
-//       Also, you should only get back one element from your selector.)
-// 4. Change all red boxes to white.
-// 5. Get the first two divs in the second row.  Take away all styling from the divs.
-// 6. Get all divs inside the container that are not row divs and are not the secret box div.
-//       Set the width of the divs to 2 pixels.
 
 $(function(){
 
@@ -15,16 +7,48 @@ $('#row1').children().addClass("boxType3");
 
 $('.box:last').hide();
 
-$('.boxType1').css('background-color', 'white')
-//not box type 3
 
-$($('#row2').children().slice(0,2)).removeAttr('background')
+// $('.boxType1').not('.boxType3').css('background-color', 'white');
+
+$($('#row2').children().slice(0,2)).removeAttr('background');
+
+// $('#container div').not('.row, #secretBox').css('width', '2px');
+
+$('#container').click(function(){
+  console.log(event.pageX, event.pageY)
+})
 
 
 
+// $('.boxType1').wrap('<a href="https://www.galvanize.com"></a>').click(function(){
+//   alert("You cannot leave this page!");
+//   return false;
+// });
+
+// 3. For all box divs, add a click handler that adds an image of a cute puppy to the box.
+//   If the image is clicked again, remove the cute puppy.
+// 4. Write a click handler __on the container div__.
+//   The click handler should turn the container background to black and the background of
+//     the original div that was clicked to white.  If the user original div that was clicked happened
+//       to be the container div, change the background of the container div to lime green.
+//         You __should not__ use any selectors for this exercise.
+//           You can do it completely with what is given to you in the event callback.
 
 
+$('.box').click(function(){
+    if ($(this).has('img').length>0) {
+        $(this).empty()
+    }
+      else {
+          $(this).append('<img src="Images/sadPupper.jpg-c200", class="pupImg" alt="pupper">')
+          $('.pupImg').css('height', 'inherit', 'width', 'inherit')
+        }
+})
 
+// $('#container').click(function(e){
+//   $('#container').css('backgroundcolor', 'black')
+// })
+//
 
 
 
